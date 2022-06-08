@@ -7,11 +7,11 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <groupId>by.kuropatin</groupId>
-    <artifactId>DKR-SpringDataProject</artifactId>
+    <artifactId>dkr-spring-data-project</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -23,6 +23,9 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <commons-io.version>2.11.0</commons-io.version>
+        <icu4j.version>71.1</icu4j.version>
     </properties>
 
     <dependencies>
@@ -76,7 +79,13 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.11.0</version>
+            <version>${commons-io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ibm.icu</groupId>
+            <artifactId>icu4j</artifactId>
+            <version>${icu4j.version}</version>
         </dependency>
 
         <dependency>
