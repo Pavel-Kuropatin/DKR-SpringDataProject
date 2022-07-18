@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StopWatch;
 
 import java.math.BigDecimal;
 
@@ -55,6 +56,8 @@ class DkrTest {
 
     @Test
     void getCart() {
+        final StopWatch sw = new StopWatch("Execution time");
+        sw.start();
         final long userId = 1;
 
         final CartResponse cartResponse = cartService.getCartResponseByUserId(userId);
@@ -65,10 +68,15 @@ class DkrTest {
         assertEquals(userId, cartResponse.getId());
 
         log.info("\n" + cartResponse);
+
+        sw.stop();
+        System.out.println(sw.getTotalTimeMillis());
     }
 
     @Test
     void findProductsTest() {
+        final StopWatch sw = new StopWatch("Execution time");
+        sw.start();
         final ProductSearchRequest request = ProductSearchRequest.builder()
                 .pageNo(0)
                 .pageSize(10)
@@ -80,7 +88,11 @@ class DkrTest {
                 .build();
 
         final ProductSearchResponse response = productService.findProducts(request);
+
         log.info("\n" + response);
+
+        sw.stop();
+        System.out.println(sw.getTotalTimeMillis());
     }
 
     @Test

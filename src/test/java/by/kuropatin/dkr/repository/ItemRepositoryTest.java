@@ -72,7 +72,7 @@ class ItemRepositoryTest {
         assertFalse(itemRepository.findItemById(0).isPresent());
 
         // findItemByCartIdAndProductId()
-        assertTrue(itemRepository.findItemByCartIdAndProductId(item.getId(), product.getId()).isPresent());
+        assertTrue(itemRepository.findItemByCartIdAndProductId(cart.getId(), product.getId()).isPresent());
         assertFalse(itemRepository.findItemByCartIdAndProductId(0, 0).isPresent());
 
         // existsItemById()

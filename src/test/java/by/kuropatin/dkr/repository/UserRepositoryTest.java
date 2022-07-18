@@ -1,8 +1,8 @@
 package by.kuropatin.dkr.repository;
 
+import by.kuropatin.dkr.model.Cart;
 import by.kuropatin.dkr.model.Gender;
 import by.kuropatin.dkr.model.User;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -32,6 +32,12 @@ class UserRepositoryTest {
                 .phone("+375123456789")
                 .email("email")
                 .build();
+
+        final Cart cart = Cart.builder()
+                .user(user)
+                .build();
+
+        user.setCart(cart);
 
         userRepository.save(user);
 
